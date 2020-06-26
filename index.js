@@ -28,6 +28,8 @@ async function main() {
     "Provide the description about what people can add in your project."
   );
   const test = await askQuestion("Provide example how to run the code.");
+  const question1 = await askQuestion("User GitHub profile picture");
+  const question2 = await askQuestion("User GitHub email");
 
   console.log(ans);
 }
