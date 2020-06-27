@@ -16,63 +16,19 @@ function askQuestion(currentQuestion) {
 }
 
 function writeSection(title, content) {
-  fs.appendFile("TEST.md", "### " + content, function (err) {
-    if (err) console.log(err);
-  });
-}
+  if (title) {
+    fs.appendFile("TEST.md", "## " + title + "\n", function (err) {
+      if (err) console.log(err);
+    });
+  }
 
-function writeSection(badge, content) {
-  fs.appendFile("TEST.md", "\n ### " + content, function (err) {
+  fs.appendFile("TEST.md", content + "\n", function (err) {
     if (err) console.log(err);
   });
-}
 
-function writeSection(description, content) {
-  fs.appendFile("TEST.md", "\n ### " + content, function (err) {
-    if (err) console.log(err);
-  });
-}
-
-function writeSection(tableOfContents, content) {
-  fs.appendFile("TEST.md", "\n ### " + content, function (err) {
-    if (err) console.log(err);
-  });
-}
-
-function writeSection(installation, content) {
-  fs.appendFile("TEST.md", "\n ### " + content, function (err) {
-    if (err) console.log(err);
-  });
-}
-function writeSection(usage, content) {
-  fs.appendFile("TEST.md", "\n ### " + content, function (err) {
-    if (err) console.log(err);
-  });
-}
-function writeSection(license, content) {
-  fs.appendFile("TEST.md", "\n ### " + content, function (err) {
-    if (err) console.log(err);
-  });
-}
-function writeSection(contributing, content) {
-  fs.appendFile("TEST.md", "\n ### " + content, function (err) {
-    if (err) console.log(err);
-  });
-}
-function writeSection(test, content) {
-  fs.appendFile("TEST.md", "\n ### " + content, function (err) {
-    if (err) console.log(err);
-  });
-}
-function writeSection(question1, content) {
-  fs.appendFile("TEST.md", "\n ### " + content, function (err) {
-    if (err) console.log(err);
-  });
-}
-function writeSection(question2, content) {
-  fs.appendFile("TEST.md", "\n ### " + content, function (err) {
-    if (err) console.log(err);
-  });
+  if (content === "") {
+    return;
+  }
 }
 
 async function main() {
@@ -80,41 +36,45 @@ async function main() {
     if (err) console.log(err);
   });
 
-  const title = await askQuestion("What is the title of the application?");
-  writeSection("Title", title);
+  const title = await askQuestion("What is the title of the application?\n");
+  fs.appendFile("TEST.md", "# " + title + "\n", function (err) {
+    if (err) console.log(err);
+  });
 
-  const badge = await askQuestion("Want to include a badge?");
+  const badge = await askQuestion("Want to include a badge?\n");
   writeSection("badge", badge);
 
   const description = await askQuestion(
-    "Please provide a description for the application?"
+    "Please provide a description for the application?\n"
   );
   writeSection("Description", description);
 
-  const tableOfContents = await askQuestion("What is the table of contents?");
+  const tableOfContents = await askQuestion("What is the table of contents?\n");
   writeSection("Table of Contents", tableOfContents);
 
-  const installation = await askQuestion("How do you install the application?");
+  const installation = await askQuestion(
+    "How do you install the application?\n"
+  );
   writeSection("Installation", installation);
 
-  const usage = await askQuestion("Provide any examples of usage.");
+  const usage = await askQuestion("Provide any examples of usage.\n");
   writeSection("usage", usage);
 
-  const license = await askQuestion("A short description about the license.");
+  const license = await askQuestion("A short description about the license.\n");
   writeSection("license", license);
 
   const contributing = await askQuestion(
-    "Provide the description about what people can add in your project."
+    "Provide the description about what people can add in your project.\n"
   );
   writeSection("contributing", contributing);
 
-  const test = await askQuestion("Provide example how to run the code.");
+  const test = await askQuestion("Provide example how to run the code. \n");
   writeSection("test", test);
 
-  const question1 = await askQuestion("User GitHub profile picture");
+  const question1 = await askQuestion("User GitHub profile picture\n");
   writeSection("question1", question1);
 
-  const question2 = await askQuestion("User GitHub email");
+  const question2 = await askQuestion("User GitHub email\n");
   writeSection("question2", question2);
 }
 
