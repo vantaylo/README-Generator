@@ -42,7 +42,7 @@ async function main() {
   });
 
   const badge = await askQuestion("Want to include a badge?\n");
-  writeSection("badge", badge);
+  writeSection("Badges", badge);
 
   const description = await askQuestion(
     "Please provide a description for the application?\n"
@@ -58,24 +58,33 @@ async function main() {
   writeSection("Installation", installation);
 
   const usage = await askQuestion("Provide any examples of usage.\n");
-  writeSection("usage", usage);
+  writeSection("Usage", usage);
 
   const license = await askQuestion("A short description about the license.\n");
-  writeSection("license", license);
+  writeSection("License", license);
 
   const contributing = await askQuestion(
     "Provide the description about what people can add in your project.\n"
   );
-  writeSection("contributing", contributing);
+  writeSection("Contributing", contributing);
 
-  const test = await askQuestion("Provide example how to run the code. \n");
-  writeSection("test", test);
+  const tests = await askQuestion("Provide example how to run the code. \n");
+  writeSection("Tests", tests);
 
-  const question1 = await askQuestion("User GitHub profile picture\n");
-  writeSection("question1", question1);
+  const email = await askQuestion("User GitHub email\n");
+  writeSection("Questions?", email);
 
-  const question2 = await askQuestion("User GitHub email\n");
-  writeSection("question2", question2);
+  const githubUsername = await askQuestion("Github Username\n");
+  fs.appendFile(
+    "TEST.md",
+    '<img src="https://github.com/' +
+      githubUsername +
+      '.png?size=200" alt="user" />' +
+      "\n",
+    function (err) {
+      if (err) console.log(err);
+    }
+  );
 }
 
 main();
