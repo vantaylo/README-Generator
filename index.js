@@ -32,12 +32,12 @@ function writeSection(title, content) {
 }
 
 async function main() {
-  fs.writeFile("TEST.md", "", function (err) {
+  fs.writeFile("README.md", "", function (err) {
     if (err) console.log(err);
   });
 
   const title = await askQuestion("What is the title of the application?\n");
-  fs.appendFile("TEST.md", "# " + title + "\n", function (err) {
+  fs.appendFile("README.md", "# " + title + "\n", function (err) {
     if (err) console.log(err);
   });
 
@@ -87,7 +87,7 @@ async function main() {
 
   const githubUsername = await askQuestion("Your Github Username\n");
   fs.appendFile(
-    "TEST.md",
+    "README.md",
     '<img src="https://github.com/' +
       githubUsername +
       '.png?size=200" alt="user" />' +
