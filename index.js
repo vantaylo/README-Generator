@@ -83,7 +83,7 @@ async function main() {
   writeSection("Tests", tests);
 
   const email = await askQuestion("Your GitHub email\n");
-  writeSection("Questions?", email);
+  writeSection("Questions?", email + "\n");
 
   const githubUsername = await askQuestion("Your Github Username\n");
   fs.appendFile(

@@ -17,4 +17,5 @@ In terminal, run command $ node index.js.
 N/A
 ## Questions?
 vanessalyn.taylor@gmail.com
+
 <img src="https://github.com/vantaylo.png?size=200" alt="user" />
