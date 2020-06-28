@@ -75,12 +75,12 @@ async function main() {
   const contributing = await askQuestion(
     "Provide example how to run the code. \n"
   );
-  writeSection("Tests", tests);
+  writeSection("Contributing", contributing);
 
   const tests = await askQuestion(
     "Provide examples on how to run your test(s).\n"
   );
-  writeSection("Contributing", contributing);
+  writeSection("Tests", tests);
 
   const email = await askQuestion("Your GitHub email\n");
   writeSection("Questions?", email);
