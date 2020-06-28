@@ -41,40 +41,51 @@ async function main() {
     if (err) console.log(err);
   });
 
-  const badge = await askQuestion("Want to include a badge?\n");
-  writeSection("Badges", badge);
-
   const description = await askQuestion(
     "Please provide a description for the application?\n"
   );
   writeSection("Description", description);
 
-  const tableOfContents = await askQuestion("What is the table of contents?\n");
-  writeSection("Table of Contents", tableOfContents);
+  // const tableOfContents = await askQuestion("What is the table of contents?\n");
+  // writeSection("Table of Contents", tableOfContents);
 
   const installation = await askQuestion(
-    "How do you install the application?\n"
+    "What are the steps required to install your project?\n"
   );
   writeSection("Installation", installation);
 
-  const usage = await askQuestion("Provide any examples of usage.\n");
+  const usage = await askQuestion(
+    "Provide instructions and examples for use.\n"
+  );
   writeSection("Usage", usage);
 
-  const license = await askQuestion("A short description about the license.\n");
+  const credit = await askQuestion(
+    "List your collaborators, if any, with links to their GitHub profiles.\n"
+  );
+  writeSection("Credit", credit);
+
+  const license = await askQuestion(
+    "Lets other developers know what they can and cannot do with your project.\n"
+  );
   writeSection("License", license);
 
+  const badge = await askQuestion("Want to include a badge?\n");
+  writeSection("Badges", badge);
+
   const contributing = await askQuestion(
-    "Provide the description about what people can add in your project.\n"
+    "Provide example how to run the code. \n"
+  );
+  writeSection("Tests", tests);
+
+  const tests = await askQuestion(
+    "Provide examples on how to run your test(s).\n"
   );
   writeSection("Contributing", contributing);
 
-  const tests = await askQuestion("Provide example how to run the code. \n");
-  writeSection("Tests", tests);
-
-  const email = await askQuestion("User GitHub email\n");
+  const email = await askQuestion("Your GitHub email\n");
   writeSection("Questions?", email);
 
-  const githubUsername = await askQuestion("Github Username\n");
+  const githubUsername = await askQuestion("Your Github Username\n");
   fs.appendFile(
     "TEST.md",
     '<img src="https://github.com/' +
