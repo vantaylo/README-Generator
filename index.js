@@ -17,12 +17,12 @@ function askQuestion(currentQuestion) {
 
 function writeSection(title, content) {
   if (title) {
-    fs.appendFile("TEST.md", "## " + title + "\n", function (err) {
+    fs.appendFile("README.md", "## " + title + "\n", function (err) {
       if (err) console.log(err);
     });
   }
 
-  fs.appendFile("TEST.md", content + "\n", function (err) {
+  fs.appendFile("README.md", content + "\n", function (err) {
     if (err) console.log(err);
   });
 
